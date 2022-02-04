@@ -101,32 +101,9 @@ int main(int argc, string argv[])
         printf("\n");
     }
 
-    // DEBUG: print preferences[] to check whether record_preferences is working as expected
-    for (int i = 0; i < candidate_count; i++) {
-        for (int j = 0; j < candidate_count; j++) {
-            printf("preferences[%i][%i]: %i\t", i, j, preferences[i][j]);
-        }
-        printf("\n");
-    }
-
     add_pairs();
     sort_pairs();
-
-     // DEBUG: print pairs[]
-    for (int i = 0; i < pair_count; i++) {
-        printf("Pair(%i) winner = %i, loser = %i\n", i, pairs[i].winner, pairs[i].loser);
-    }
-
     lock_pairs();
-
-    // DEBUG: print locked[]
-    for (int i = 0; i < candidate_count; i++) {
-        for (int j = 0; j < candidate_count; j++) {
-            printf("[%i][%i]: [%s]\t", i, j, locked[i][j] ? "true": "false");
-        }
-        printf("\n");
-    }
-
     print_winner();
     return 0;
 }
